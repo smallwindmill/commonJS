@@ -54,3 +54,20 @@ function GetQueryString(name)
   .tips span {
     position: absolute;top: 50%;left: 50%;display: inline-block;padding: 10px 15px;max-width: 80%;line-height: 1.5;font-size: 1.4rem;color:  #fff;border-radius: 20px;overflow: hidden;background: rgba(0,0,0,.7);-webkit-transform: translate(-50%, -50%);        transform: translate(-50%, -50%);
   }*/
+
+  // 上传文件
+  // 判断文件类型
+    str=$(this).val();
+    var arr=str.split('\\');//注split可以用字符或字符串分割
+    var my=arr[arr.length-1];
+    var end=my.split('.');
+    var finend=end[end.length-1];
+    if(finend.indexOf('jpg')==-1||finend.indexOf('png')==-1||finend.indexOf('jpeg')==-1){
+      tips('图片格式不正确');
+      return false;
+    }
+    // 将文件框包含的内容传进新建的formData对象
+    var formData = new FormData();
+    var name = $("#cardPhoto").val();
+    formData.append("file",$("#cardPhoto")[0].files[0]);
+    formData.append("name",name);
