@@ -30,3 +30,27 @@ function GetQueryString(name)
     }
 
     var curr_Date=new Date().format('yyyy-MM-dd');
+
+
+    // 提示框
+    function tips(msg){
+        var tip_cont =  '<div class="tips"><span>';
+        tip_cont += msg;
+        tip_cont +='</span></div>';
+        if (!$(".tips")[0]) {
+            $("body").append(tip_cont);
+        }else{
+            $(".tips>span").html(msg);
+        }
+        $(".tips").show().delay(1200).hide(0,function(){
+            $(this).remove();
+        });
+    }
+    // CSS样式
+   /* .tips {
+      position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;text-align: center;  z-index: 100;
+    }
+
+  .tips span {
+    position: absolute;top: 50%;left: 50%;display: inline-block;padding: 10px 15px;max-width: 80%;line-height: 1.5;font-size: 1.4rem;color:  #fff;border-radius: 20px;overflow: hidden;background: rgba(0,0,0,.7);-webkit-transform: translate(-50%, -50%);        transform: translate(-50%, -50%);
+  }*/
