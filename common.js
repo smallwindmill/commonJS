@@ -71,3 +71,22 @@ function GetQueryString(name)
     var name = $("#cardPhoto").val();
     formData.append("file",$("#cardPhoto")[0].files[0]);
     formData.append("name",name);
+
+
+// 判断浏览器信息
+     var useragent = navigator.userAgent;
+      if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+          // 这里警告框会阻塞当前页面继续加载
+          alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+          
+      }
+    var IP='http://112.124.15.205:8090';
+
+// 对url栏进行操作
+    if(window.location.href.indexOf('communityId')==-1){
+      if(window.location.href.indexOf('?')==-1){
+        history.pushState('','',window.location.href+'?communityId=1');
+      }else{
+        history.pushState('','',window.location.href+'&communityId=1');
+      }
+    }
