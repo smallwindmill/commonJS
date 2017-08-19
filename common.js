@@ -47,13 +47,15 @@ function GetQueryString(name)
         });
     }
     // CSS样式
-   /* .tips {
+   /* 
+   .tips {
       position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;text-align: center;  z-index: 100;
     }
 
   .tips span {
-    position: absolute;top: 50%;left: 50%;display: inline-block;padding: 10px 15px;max-width: 80%;line-height: 1.5;font-size: 1.4rem;color:  #fff;border-radius: 20px;overflow: hidden;background: rgba(0,0,0,.7);-webkit-transform: translate(-50%, -50%);        transform: translate(-50%, -50%);
-  }*/
+    position: absolute;top: 75%;left: 50%;display: inline-block;padding: 8px 18px;max-width: 80%;line-height: 1.5;font-size: 1.6rem;color: #fff;border-radius: 20px;overflow: hidden;background: rgba(50,50,50,.8);-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);
+  }
+  */
 
   // 上传文件
   // 判断文件类型
