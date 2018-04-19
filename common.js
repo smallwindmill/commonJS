@@ -92,3 +92,5 @@ function GetQueryString(name)
         history.pushState('','',window.location.href+'&communityId=1');
       }
     }
+// 谷歌浏览器开发过程中的跨域问题
+C:\Users\H\AppData\Local\Google\Chrome\Application\chrome.exe --disable-web-security --user-data-dir=D:\MyChromeDevUserData
