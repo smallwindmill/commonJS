@@ -1,4 +1,47 @@
 // 地址栏通过url获取参数值
+1，设置或获取对象指定的文件名或路径。
+
+alert(window.location.pathname)
+2，设置或获取整个 URL 为字符串。
+
+alert(window.location.href);
+
+3，设置或获取与 URL 关联的端口号码。
+
+alert(window.location.port)
+
+4，设置或获取 URL 的协议部分。
+
+alert(window.location.protocol)
+
+5，设置或获取 href 属性中在井号“#”后面的分段。
+
+alert(window.location.hash)
+
+6，设置或获取 location 或 URL 的 hostname 和 port 号码。
+
+alert(window.location.host)
+
+7，设置或获取 href 属性中跟在问号后面的部分。
+
+alert(window.location.search)
+
+8，获取变量的值(截取等号后面的部分)
+
+ var url = window.location.search;
+
+//    alert(url.length);
+
+//    alert(url.lastIndexOf('='));
+
+var loc = url.substring(url.lastIndexOf('=')+1, url.length);
+
+9，用来得到当前网页的域名
+
+var domain = document.domain;
+
+stay hungry stay foolish！
+
 function GetQueryString(name)
     {
          var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
