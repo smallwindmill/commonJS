@@ -90,7 +90,7 @@ function GetQueryString(name)
         });
     }
     // CSS样式
-   /* 
+   /*
    .tips {
       position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;text-align: center;  z-index: 100;
     }
@@ -116,6 +116,23 @@ function GetQueryString(name)
     var name = $("#cardPhoto").val();
     formData.append("file",$("#cardPhoto")[0].files[0]);
     formData.append("name",name);
+    // ajax上传文件
+      $.ajax({
+        url: 'http://localhost:8081/file_upload',
+        type: 'POST',
+        dataType: 'formData',
+        enctype: "multipart/form-data",
+        processData: false,//用于对data参数进行序列化处理 这里必须false
+        contentType: false,//这里的contentType也必须为false
+        data:formData,
+        complete: function(data) {
+          console.log("success"+JSON.stringify(data));
+          // console.log(formData);
+        },
+        fail: function(data) {
+          console.log("error"+data.json());
+        }
+      })
 
 
 // 判断浏览器信息
@@ -123,7 +140,7 @@ function GetQueryString(name)
       if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
           // 这里警告框会阻塞当前页面继续加载
           alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
-          
+
       }
     var IP='http://112.124.15.205:8090';
 
