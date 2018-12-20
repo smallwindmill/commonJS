@@ -152,5 +152,30 @@ function GetQueryString(name)
         history.pushState('','',window.location.href+'&communityId=1');
       }
     }
-// 谷歌浏览器开发过程中的跨域问题
-C:\Users\H\AppData\Local\Google\Chrome\Application\chrome.exe --disable-web-security --user-data-dir=D:\MyChromeDevUserData
+// 谷歌浏览器设置安全模式，可解决开发过程中的跨域问题
+"C:\Users\H\AppData\Local\Google\Chrome\Application\chrome.exe --disable-web-security" --user-data-dir=D:\MyChromeDevUserData
+
+
+/*open layer加载天地图*/
+var tiandiTile = new ol.layer.Tile({
+    source:new ol.source.XYZ({
+        url:"http://t4.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}"
+    }),
+    name:'天地图底图',
+    opacity:.5,
+    id:'share666'
+});
+var tiandiLabel = new ol.layer.Tile({
+    name: "天地图文字标注",
+    id:'share777',
+    source: new ol.source.XYZ({
+        url: 'http://t3.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}'
+    })
+});
+var tiandiImage = new ol.layer.Tile({
+    name: "天地图卫星影像",
+    id:'share333',
+    source: new ol.source.XYZ({
+        url: 'http://t3.tianditu.com/DataServer?T=img_w&x={x}&y={y}&l={z}'
+    })
+});
