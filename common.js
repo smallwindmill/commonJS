@@ -156,6 +156,8 @@ if(window.location.href.indexOf('communityId')==-1){
 // 14. 谷歌浏览器设置安全模式,可解决开发过程中的跨域问题
 "C:\Users\H\AppData\Local\Google\Chrome\Application\chrome.exe --disable-web-security" --user-data-dir=D:\MyChromeDevUserData
 
+chrome://flags/#unsafely-treat-insecure-origin-as-secure  https的情况外开启摄像头
+
 // 15.open layer加载天地图
 var tiandiTile = new ol.layer.Tile({
     source:new ol.source.XYZ({
