@@ -371,3 +371,40 @@ var Base64 = {
 		return t
 	}
 }
+
+
+
+// nodejs
+
+    closeTaskWithName(name) {
+        let that = this;
+        let cmd = process.platform=='win32'?'tasklist|findstr ffmpeg.exe':'ps aux|grep ffmpeg.exe';
+        return new Promise((resolve, reject)=>{
+            that.runtime.childProcess.exec(cmd, function(err, stdout, stderr) {
+                if(err){
+                    return console.log(err);
+                    reject(err);
+                }
+                stdout.split('\n').filter(function(line){
+                   let p=line.trim().split(/\s+/);
+                    // console.log(p);
+                   let pid=p?p[1]:null;
+                   if(pid == null || pid == undefined){
+                       console.log('no pid with ffmpeg', pid);
+                       resolve('ok');
+                       return;
+                   }
+                   console.log("task kill====", 'taskkill /F /pid '+pid);
+                   that.runtime.childProcess.exec('taskkill /F /pid '+pid,function(err, stdout, stderr){
+                       if(err){
+                           console.log('关闭ffmpeg.exe失败！');
+                           reject(err);
+                           that.closeTaskWithName("ffmpeg");
+                       }
+                       resolve('ok');
+                       console.log('关闭ffmpeg.exe成功！');
+                   });
+                });
+            });
+        })
+    }
