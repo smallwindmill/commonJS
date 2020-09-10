@@ -1,0 +1,75 @@
+with callback
+[
+  {
+    mac: '100%',
+    bssid: '100%',
+    ssid: '�ṹ',
+    channel: 1,
+    frequency: 2412,
+    signal_level: 301.055,
+    quality: 802.11,
+    security: '�� ',
+    security_flags: '60:60:1f:5d:cd:e4',
+    mode: 'Unknown'
+  },
+  {
+    mac: '4c:e9:e4:73:88:01',
+    bssid: '4c:e9:e4:73:88:01',
+    ssid: 'dfrobotOffice',
+    channel: 1,
+    frequency: 2412,
+    signal_level: -56,
+    quality: 88,
+    security: 'WPA2 - ����',
+    security_flags: 'CCMP ',
+    mode: 'Unknown'
+  },
+  {
+    mac: '52:e9:e4:73:88:01',
+    bssid: '52:e9:e4:73:88:01',
+    ssid: 'dfrobotGuest',
+    channel: 1,
+    frequency: 2412,
+    signal_level: -56,
+    quality: 88,
+    security: 'WPA2 - ����',
+    security_flags: 'CCMP ',
+    mode: 'Unknown'
+  },
+  {
+    mac: 'a0:c5:f2:b0:ab:38',
+    bssid: 'a0:c5:f2:b0:ab:38',
+    ssid: '',
+    channel: 3,
+    frequency: 2422,
+    signal_level: -64,
+    quality: 72,
+    security: 'WPA2 - ����',
+    security_flags: 'CCMP ',
+    mode: 'Unknown'
+  },
+  {
+    mac: '8c:a6:df:ea:f4:cc',
+    bssid: '8c:a6:df:ea:f4:cc',
+    ssid: 'hitest',
+    channel: 11,
+    frequency: 2462,
+    signal_level: -65.5,
+    quality: 69,
+    security: 'WPA2 - ����',
+    security_flags: 'CCMP ',
+    mode: 'Unknown'
+  },
+  {
+    mac: '98:d8:63:7f:34:60',
+    bssid: '98:d8:63:7f:34:60',
+    ssid: 'HF8102_3460',
+    channel: 10,
+    frequency: 2457,
+    signal_level: -68.5,
+    quality: 63,
+    security: '����ʽ',
+    security_flags: '�� ',
+    mode: 'Unknown'
+  }
+]
