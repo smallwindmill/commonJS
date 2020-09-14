@@ -134,6 +134,28 @@ position: absolute;top: 75%;left: 50%;display: inline-block;padding: 8px 18px;ma
       }
     })
 
+    fetch(that.serverIP.uploadFile,{
+      method: 'POST',
+      body: formData
+    }).then((res) => {
+        res.json();
+        if(res.ok){
+            that.tips('文件上传成功','1000');
+            $('#upLoadFilePop').modal('hide');
+            nextFunction();
+        }else{
+            that.tips( '文件上传出错', '1000');
+        }
+   }).then((data) => {
+        if(data.status == 200){
+            that.tips('图形已添加至图层');
+        }else if(data.status == 500){
+            that.tips('图形识别失败，请检查数据格式');
+        }
+   }).catch(error=>{
+        console.log(error);
+        that.tips('与服务器连接失败，请稍后重试');})
+
 
 // 12. 判断浏览器信息
 var useragent = navigator.userAgent;
@@ -278,3 +300,22 @@ confirms = function(msg,yes,no){
                 (no)?(no()):(console.log(''));
             })
 }
+
+17. 浏览器复制
+  function copyUrl(copyValue){
+        if(!copyValue){
+          copyValue='you copy nothing~';
+        }
+        var oInput = document.createElement('input');
+        oInput.value = copyValue;
+        oInput.style.position='absolute';
+        oInput.style.top='0';
+        oInput.style.right='0';
+        oInput.style.zIndex='-3';
+        document.body.appendChild(oInput);
+        oInput.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        oInput.className = 'oInput';
+        document.body.removeChild(oInput);
+        tips('复制成功');
+  }
