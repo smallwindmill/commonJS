@@ -1,6 +1,6 @@
 const os = require('os');
 const dgram = require('dgram');
-const childProcess = require('child_process');
+const { exec } = require('child_process');
 
 class telloTeamScan{
   constructor(server, scan_num, scan_timeout, indexwithsn){
@@ -75,7 +75,7 @@ class telloTeamScan{
   ping_ip(ip_str){
       // console.log("ping '+ip_str==", 'ping '+ip_str);
       return new Promise((resolve, reject)=>{
-        childProcess.exec('ping -a '+ip_str, (err, stdout)=>{
+        exec('ping -a '+ip_str, (err, stdout)=>{
             stdout = stdout.toString();
             // console.log("stdout===", stdout);
             if(stdout.match(/TTL/i)){
@@ -164,7 +164,6 @@ class telloTeamScan{
 
   // 入口，读取局域网下的设备（端口1-255）
   startScan(){
-
     return new Promise((resolve, reject)=>{
         // 超时从查询存活开始，而不是测试连接tello
         if(this.scan_timeout) {
@@ -203,7 +202,7 @@ class telloTeamScan{
                 // this.tellos[ip_str] = hostname;
                 // 只获取查询的sn码对应的IP
                 if(this.indexwithsn[msg] && this.result_num < this.scan_num) {
-                  if(!this.alive_tello_IP[rinfo.address]) this.result_num++;
+                  if(!this.alive_tello[this.indexwithsn[msg]]) this.result_num++;
                   this.alive_tello[this.indexwithsn[msg]] = {IP: rinfo.address, SN: msg};
                   this.alive_tello_IP[rinfo.address] = {sn: msg, index: this.indexwithsn[msg]};
                 }

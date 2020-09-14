@@ -40,7 +40,7 @@ function connectToWifi(config, ap, callback) {
         'add',
         'profile',
         'filename="nodeWifiConnect.xml"',
-        'interface="' + (config.iface || ap.iface)+'"'
+        (config.iface || ap.iface) ? ('interface="' + (config.iface || ap.iface)+'"'):''
       ]);
     })
     .then(function() {

@@ -1,12 +1,10 @@
-var execFile = require('child_process').execFile;
+var { execFile, exec} = require('child_process');
 var networkUtils = require('./utils/network-utils');
 var env = require('./env');
 
 function scanWifi(config, callback) {
   try {
-    execFile(
-      'netsh',
-      ['wlan', 'show', 'networks', 'mode=Bssid'],
+    exec('chcp 437 && netsh wlan show networks mode=Bssid',
       { env },
       function(err, scanResults) {
         if (err) {

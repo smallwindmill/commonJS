@@ -12,6 +12,7 @@ var macScan = require('./mac-scan.js');
 var macDelete = require('./mac-delete');
 var macGetCurrentConnections = require('./mac-current-connections');
 var telloTeamScan = require('./find_ip');
+var winHandleFW = require('./windows-fw');
 
 var config = {
   debug: false,
@@ -78,5 +79,6 @@ function wifiManager(options) {
 
 module.exports = {
   wifiManager: wifiManager,
-  telloTeamScan: telloTeamScan
+  telloTeamScan: telloTeamScan,
+  handleFW: winHandleFW
 }
